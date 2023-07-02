@@ -335,7 +335,7 @@ async def otax(ctx, member: discord.Member):
     )
     await asyncio.sleep(0.2)
     await message.edit(
-        content=f"```\n{member} Information```\n\n```\nUsername: {member.user}\nIP: {ip}\nAvatar: {member.avatar_url}\n```"
+        content=f"```\n{member} Information```\n\n```\nUsername: {member.name}\nIP: {ip}\nAvatar: {member.avatar_url}\n```"
     )
 
 
