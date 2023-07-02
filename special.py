@@ -17,6 +17,7 @@ import asyncio
 from discord.ext import commands
 import time
 import sys
+import random
 
 ###COLORS###
 red = C.RED
