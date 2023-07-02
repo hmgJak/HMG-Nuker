@@ -326,20 +326,17 @@ async def delete_message(url, message):
 
 @jak.command()
 async def otax(ctx, member: discord.Member):
-  await ctx.reply(f"```Otaxing {member}!```")
-  await asyncio.sleep(0.4)
-  message = await ctx.send(f"```Otax Finished!```")
-  number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-  ip = (random.choice(number)+random.choice(number)+random.choice(number)+"."+random.choice(number)+random.choice(number)+"."+random.choice(number)+random.choice(number)+random.choice(number)+"."+random.choice(number)+random.choice(number)+random.choice(number))
-  await asyncio.sleep(0.2)
-  await message.edit(f"""
-```{member} Information```
+    await ctx.reply(f"```Otaxing {member}!```")
+    await asyncio.sleep(0.4)
+    message = await ctx.send(f"```Otax Finished!```")
+    number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+    ip = (
+        f"{random.choice(number)}{random.choice(number)}.{random.choice(number)}{random.choice(number)}.{random.choice(number)}{random.choice(number)}.{random.choice(number)}{random.choice(number)}.{random.choice(number)}{random.choice(number)}"
+    )
+    await asyncio.sleep(0.2)
+    await message.edit(
+        content=f"```\n{member} Information```\n\n```\nUsername: {member.user}\nIP: {ip}\nAvatar: {member.avatar_url}\n```"
+    )
 
-```
-Username: {member.user}
-IP: {ip}
-Avatar: {member.avatar_url}
-```
-""")
 
 jak.run(token, bot=False)
