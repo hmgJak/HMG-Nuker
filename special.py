@@ -323,4 +323,22 @@ async def delete_message(url, message):
         else:
             print(f"{red}[-] Failed to delete message: {message.content} - {resp.status}")
 
+@jak.command()
+async def otax(ctx, member: discord.Member):
+  await ctx.reply(f"```Otaxing {member}!```")
+  await asyncio.sleep(0.4)
+  message = await ctx.send(f"```Otax Finished!```")
+  number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+  ip = (random.choice(number)+random.choice(number)+random.choice(number)+"."+random.choice(number)+random.choice(number)+"."+random.choice(number)+random.choice(number)+random.choice(number)+"."+random.choice(number)+random.choice(number)+random.choice(number))
+  await asyncio.sleep(0.2)
+  await message.edit(f"""
+```{member} Information```
+
+```
+Username: {member.user}
+IP: {ip}
+Avatar: {member.avatar_url}
+```
+""")
+
 jak.run(token, bot=False)
