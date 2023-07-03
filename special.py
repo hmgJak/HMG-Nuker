@@ -331,7 +331,7 @@ async def otax(ctx, member: discord.Member):
     message = await ctx.send(f"```Otax Finished!```")
     number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
     ip = (
-        f"{random.choice(number)}{random.choice(number)}.{random.choice(number)}{random.choice(number)}.{random.choice(number)}{random.choice(number)}.{random.choice(number)}{random.choice(number)}.{random.choice(number)}{random.choice(number)}"
+        f"{random.choice(number)}{random.choice(number)}{random.choice(number)}.{random.choice(number)}{random.choice(number)}.{random.choice(number)}{random.choice(number)}{random.choice(number)}.{random.choice(number)}{random.choice(number)}"
     )
     await asyncio.sleep(0.2)
     await message.edit(
