@@ -194,6 +194,29 @@ async def cdel(ctx):
   await delete_channels(guild)
 
 @jak.command()
+async def nitrousers(ctx):
+    nitro_basic_users = []
+    nitro_premium_users = []
+
+    for member in ctx.guild.members:
+        if member.premium_since is not None:
+            if member.premium_since.premium_type == 2:  # Nitro Premium (premium_type = 2)
+                nitro_premium_users.append(member.display_name)
+            else:
+                nitro_basic_users.append(member.display_name)
+
+    message = (
+        "👿 | `Nitro Basic` | 👿\n"
+        "> List of users with Nitro Basic\n\n"
+        + "\n".join(f"👿 {name}" for name in nitro_basic_users)
+        + "\n\n👿 | `Nitro Premium` | 👿\n"
+        "> List of users with Nitro Premium\n\n"
+        + "\n".join(f"👿 {name}" for name in nitro_premium_users)
+    )
+
+    await ctx.send(message)
+
+@jak.command()
 async def mch(ctx, amount):
   guild = ctx.guild
   if amount == "":
