@@ -1,7 +1,7 @@
 ###CLARIFICATION 5 SELFBOT###
 ###FOR MEMBERS OF THE REBORN GUARD BELOW CLARIFICATION 4###
 ###DEVELOPED AND CODED BY JAK###
-###LAST UPDATED JULY 2ND, 2023###
+###LAST UPDATED JULY 21ST, 2023###
 
 ###IMPORTS###
 import os
@@ -195,25 +195,20 @@ async def cdel(ctx):
 
 @jak.command()
 async def nitrousers(ctx):
-    nitro_basic_users = []
-    nitro_premium_users = []
+  nitro_users = []
 
-    for member in ctx.guild.members:
-        if member.premium_since is not None:
-            if member.premium_since.premium_type == 2:  # Nitro Premium (premium_type = 2)
-                nitro_premium_users.append(member.display_name)
-            else:
-                nitro_basic_users.append(member.display_name)
+  for member in ctx.guild.members:
+    if member.premium_since is not None:
+      nitro_users.append(member.display_name)
 
+  if not nitro_users:
+    await ctx.send("No users with Nitro found in this server.")
+  else:
     message = (
-        "👿 | `Nitro Basic` | 👿\n"
-        "> List of users with Nitro Basic\n\n"
-        + "\n".join(f"👿 {name}" for name in nitro_basic_users)
-        + "\n\n👿 | `Nitro Premium` | 👿\n"
-        "> List of users with Nitro Premium\n\n"
-        + "\n".join(f"👿 {name}" for name in nitro_premium_users)
+      "👿 | `Nitro Users` | 👿\n"
+      "> Users with Nitro list\n\n"
+      + "\n".join(f"👿 {name}" for name in nitro_users)
     )
-
     await ctx.send(message)
 
 @jak.command()
