@@ -356,5 +356,12 @@ async def otax(ctx, member: discord.Member):
         content=f"```\n{member} Information```\n\n```\nUsername: {member.name}\nIP: {ip}\nAvatar: {member.avatar_url}\n```"
     )
 
+@jak.command()
+async def desc(ctx, description):
+  guild = ctx.guild
+  try:
+    await guild.edit(description=description)
+  except Exception as e:
+    print(e)
 
 jak.run(token, bot=False)
